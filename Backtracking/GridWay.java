@@ -11,7 +11,7 @@ public class GridWay {
         return w1+w2;
     }
     public static void main(String args[]){
-        int n =2,m=2;
+        int n =4,m=4;
         System.out.println(CountWays(0,0,n,m));
     }
 }
