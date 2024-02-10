@@ -1,9 +1,9 @@
 public class GridWay {
     public static int CountWays(int i, int j, int n, int m){
-        if(i==n-1 || j ==m-1){
+        if(i==n-1 || j ==m-1){//base case
             return 1;
         }
-        else if(i==n || j==m){
+        else if(i==n || j==m){//corner case out of boundary
             return 0;
         }
         int w1 = CountWays(i+1,j,n,m);
