@@ -10,11 +10,13 @@ public class Initialization {
     }
     public static Node head;
     public static Node tail;
+    public static int size;
     //adding will at first position and last position
 
     public void addfirst(int data){
         //step1 = create new node
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = tail = newNode;
             return;
@@ -29,6 +31,7 @@ public class Initialization {
     public void addlast(int data){
         //step1 = create a node (newnode)
         Node newNode = new Node(data);
+        size++;
         if(head == null){
             head = tail = newNode;
             return;
@@ -38,6 +41,37 @@ public class Initialization {
 
         //step3 = tail = newnode
         tail = newNode;
+    }
+    public void addMidlle(int index, int data){
+        if(index == 0){
+            addfirst(data);
+            return;
+        }
+        Node newNode = new Node(data);
+        size++;
+        Node temp = head;
+        int i = 0;
+        while(i<index-1){
+            temp = temp.next;
+            i++;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+
+    }
+    public int removeFirst(){
+        if(size == 0){
+            return Integer.MIN_VALUE;
+        }else if(size ==1){
+            int val = head.data;
+            head = tail= null;
+            size = 0;
+            return val;
+        }
+        int val = head.data;
+        head = head.next;
+        size--;
+        return val;
     }
     public void printlinkelist(){
        if(head == null){
@@ -61,19 +95,17 @@ public class Initialization {
         // now we use methods to define the linked list such add
         //add()
         //remove()
-        ll.printlinkelist();
         ll.addfirst(3);
-        ll.printlinkelist();
         ll.addfirst(2);
-        ll.printlinkelist();
         ll.addfirst(1);
-        ll.printlinkelist();
         ll.addlast(4);
         ll.addlast(5); 
-        ll.printlinkelist();
         ll.addlast(6);
+        ll.addMidlle(3,9);
         ll.printlinkelist();
-
-
+        System.out.println("Total size of linkedlist is : "+size);
+        ll.removeFirst();
+        ll.printlinkelist();
+        System.out.println("new size of linkedlist is : "+size);
     }
 }
