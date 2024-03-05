@@ -92,6 +92,20 @@ public class Initialization {
         size--;
         return val;
     }
+    public int iterSearch(int key){
+        Node temp = head;
+        int i = 0;
+
+        while(temp!=null){
+            if(temp.data == key){
+                return i;
+            }
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+
+    }
     public void printlinkelist(){
        if(head == null){
         System.out.println("linkedlist is empty");
@@ -131,5 +145,8 @@ public class Initialization {
         ll.removeLast();
         ll.printlinkelist();
         System.out.println("new size of linkedlist is : "+size);
+
+        System.out.println(ll.iterSearch(4));
+        System.out.println(ll.iterSearch(5));
     }
 }
