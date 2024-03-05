@@ -106,6 +106,24 @@ public class Initialization {
         return -1;
 
     }
+    public int helper(Node head,int key){
+        if(head == null){
+            return -1;
+        }
+
+        if(head.data == key){
+            return 0;
+        }
+
+        int indx = helper(head.next,key);
+        if(indx == -1){
+            return -1;
+        }
+        return indx+1;
+    }
+    public int recSearch(int key){
+        return helper(head,key);
+    }
     public void printlinkelist(){
        if(head == null){
         System.out.println("linkedlist is empty");
@@ -148,5 +166,7 @@ public class Initialization {
 
         System.out.println(ll.iterSearch(4));
         System.out.println(ll.iterSearch(5));
+        System.out.println(ll.recSearch(4));
+        System.out.println(ll.recSearch(5));
     }
 }
