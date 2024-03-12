@@ -137,6 +137,18 @@ public class Initialization {
         System.out.println("null");
         
     }
+    public void reverse(){
+        Node prev = null;
+        Node curr = head;
+        Node next;
+        while(curr!=null){
+            next=curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+    }
     public static void main(String args[]){
         Initialization ll = new Initialization();
         // this is the process to add value in linked list.
@@ -154,19 +166,21 @@ public class Initialization {
         ll.addlast(6);
         ll.addMidlle(3,9);
         ll.printlinkelist();
-        System.out.println("Total size of linkedlist is : "+size);
-        ll.removeFirst();
+        ll.reverse();
         ll.printlinkelist();
-        System.out.println("new size of linkedlist is : "+size);
-        ll.removeLast();
-        ll.printlinkelist();
-        ll.removeLast();
-        ll.printlinkelist();
-        System.out.println("new size of linkedlist is : "+size);
+        // System.out.println("Total size of linkedlist is : "+size);
+        // ll.removeFirst();
+        // ll.printlinkelist();
+        // System.out.println("new size of linkedlist is : "+size);
+        // ll.removeLast();
+        // ll.printlinkelist();
+        // ll.removeLast();
+        // ll.printlinkelist();
+        // System.out.println("new size of linkedlist is : "+size);
 
-        System.out.println(ll.iterSearch(4));
-        System.out.println(ll.iterSearch(5));
-        System.out.println(ll.recSearch(4));
-        System.out.println(ll.recSearch(5));
+        // System.out.println(ll.iterSearch(4));
+        // System.out.println(ll.iterSearch(5));
+        // System.out.println(ll.recSearch(4));
+        // System.out.println(ll.recSearch(5));
     }
 }
