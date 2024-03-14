@@ -149,6 +149,31 @@ public class Initialization {
         }
         head = prev;
     }
+    public void removenthnode(int n){
+        //calculate size
+        int sz =0;
+        Node temp = head;
+        while(temp != null){
+            temp = temp.next;
+            sz++;
+        }
+        // when n == size means lastnode then
+        if(n == sz){
+            head = head.next;
+            return;
+        }
+
+        // remove n node from list
+        int i = 1;
+        int idx = sz-n;
+        Node prev = head;
+        while(i < idx){
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
     public static void main(String args[]){
         Initialization ll = new Initialization();
         // this is the process to add value in linked list.
@@ -166,8 +191,14 @@ public class Initialization {
         ll.addlast(6);
         ll.addMidlle(3,9);
         ll.printlinkelist();
-        ll.reverse();
+        ll.removenthnode(2);
         ll.printlinkelist();
+        ll.removenthnode(3);
+        ll.printlinkelist();
+        ll.removenthnode(4);
+        ll.printlinkelist();
+        // ll.reverse();
+        // ll.printlinkelist();
         // System.out.println("Total size of linkedlist is : "+size);
         // ll.removeFirst();
         // ll.printlinkelist();
