@@ -33,7 +33,7 @@ public class AddingatFirst {
     }
     //main function for palidrone
     public boolean checkpalidrone(){
-        if(head == null || head.next==null){
+        if(head == null || head.next == null){
             return true;
         }
         // step 1 find the mid
